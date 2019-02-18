@@ -6,14 +6,16 @@ import RecipesSearch from './RecipesSearch';
 
 export default class RecipesList extends Component {
 render() {
-console.log(this.props.recipes, 'from recipes list');
 const { recipes } = this.props;
 
-console.log(recipes, "whats this?");
-
+	const { handleSearchSubmitButton, handleSearchInputChange, value  } = this.props;
 	return (
 		<React.Fragment>
-			<RecipesSearch />
+			<RecipesSearch 
+				handleSearchSubmitButton={handleSearchSubmitButton}
+				handleSearchInputChange={handleSearchInputChange}
+				value={value}
+			/>
 				<div className="container my-5">
 					<div className="row">
 						<div className="col-10 mx-auto col-md-6 text-center text-uppercase mb-3">
@@ -27,6 +29,7 @@ console.log(recipes, "whats this?");
 									<Recipes 
 										key={recipe.recipe_id}
 										recipe={recipe}
+										handelDetailsId={this.props.handelDetailsId}
 									/>
 
 								);

@@ -10,7 +10,7 @@ export default class RecipesDetails extends Component {
 					url: `https://www.food2fork.com/api/get?key=41fb4fc4a0a5b6b7d524c164912db455&rId=${this.props.id}`,
 			}
 	}
-
+/*
   async componentDidMount() {
 			try {
 				const data = await fetch(this.state.url);
@@ -23,7 +23,7 @@ export default class RecipesDetails extends Component {
 				console.log(error, 'Failed in loading Json ');
 			}
   }
-
+*/
 	render() {
 		console.log(this.state.recipe, "from details");
 		const {
@@ -35,12 +35,13 @@ export default class RecipesDetails extends Component {
 				ingredients
 		} = this.state.recipe;
 
+		const { handleIndexChange } = this.props;
 	return (
 		<React.Fragment>
 			<div className="container">
 				<div className="row">
 					<div className="col-10 mx-auto col-md-6 my-3">
-						<button type="button" className="btn btn-warning mb-5 text-capitalize">
+						<button onClick={ () => handleIndexChange(1) }type="button" className="btn btn-warning mb-5 text-capitalize">
 								Back to Recipe List
 						</button>
 						<img src={image_url} alt={title} className="d-block w-100"/> 
